@@ -1,0 +1,4 @@
+qimage2ndarray
+opencv-python
+imutils 
+pytorch
