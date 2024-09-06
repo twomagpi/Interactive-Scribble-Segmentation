@@ -20,7 +20,7 @@ from model_unet import (
     AbstractUNet, 
     AbstractDownNet,
     )
-from PIL.ImageQt import ImageQt 
+#from PIL.ImageQt import ImageQt 
 import qimage2ndarray
 import os
 import glob
@@ -508,8 +508,8 @@ class Annotator(PyQt5.QtWidgets.QWidget):
                 painter_resize = self.makePainter_resize(self.resizePix, 
                         self.color_picker(self.label, 
                             (self.label>0)*self.annotationOpacity)) # the painter used for drawing 
-                point = PyQt5.QtCore.QPoint((event.x()-self.padding.x())/self.size.width() * self.resize_size,
-                                    (event.y()-self.padding.y())/self.size.height() * self.resize_size)
+                point = PyQt5.QtCore.QPoint(int((event.x()-self.padding.x())/self.size.width() * self.resize_size),
+                                            int((event.y()-self.padding.y())/self.size.height() * self.resize_size))
                 painter_resize.drawPoint(point)
                 
                 self.last_resize_point = point
@@ -538,8 +538,8 @@ class Annotator(PyQt5.QtWidgets.QWidget):
                 painter_resize = self.makePainter_resize(self.resizePix, 
                         self.color_picker(self.label, 
                             (self.label>0)*self.annotationOpacity)) # the painter used for drawing 
-                point = PyQt5.QtCore.QPoint((event.x()-self.padding.x())/self.size.width() * self.resize_size,
-                                    (event.y()-self.padding.y())/self.size.height() * self.resize_size)
+                point = PyQt5.QtCore.QPoint(int((event.x()-self.padding.x())/self.size.width() * self.resize_size),
+                                            int((event.y()-self.padding.y())/self.size.height() * self.resize_size))
                 painter_resize.drawLine(self.last_resize_point, point)
                 self.last_resize_point = point
                 
